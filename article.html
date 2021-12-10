@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <style>
+        .banner {
+            background-image: url("Image/Article-studio-banner.png");
+            width: 100%;
+            max-width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 70vh;
+            background-blend-mode: darken;
+        }
+
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .create {
+            height: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .create:hover {
+            background-color: #111;
+        }
+
+        #nav {
+            display: flex;
+            height: 60px;
+            overflow-y: hidden;
+            justify-content: space-between;
+            color: white;
+            font-family: Corbel;
+            background-color: #333;
+            align-items: center;
+        }
+
+        .input {
+            margin-top: 3px;
+            margin-right: 16px;
+            border: none;
+            font-family: Corbel;
+            padding: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .created {
+            border: 1px solid black;
+            padding-left: 50px;
+            padding-right: 50px;
+            height: 500px !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .wait {
+            display: none;
+            text-align: center;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #555;
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 45%;
+            left: 45%;
+            display: block;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .created img {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .clicked {
+            background-color: #111;
+        }
+
+        .created:hover {
+            background-color: whitesmoke;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Articles</title>
+</head>
+
+<body>
+    <div class="wait">
+        <div class="banner"></div>
+        <nav id="nav">
+            <div style="display: flex;">
+                <div class="create" id="new">New</div>
+                <div class="create" id="sign">Sign up</div>
+                <div class="create" id="login">Login</div>
+                <script>
+                    document.querySelector("#login").addEventListener("click", () => {
+                        location.replace("/login");
+                    });
+                </script>
+            </div>
+            <form class="input" action="/search">
+                <input type="text" placeholder="Search..." name="name" style="margin: 0px; font-family: Corbel;">
+                <button type="submit" style="margin: 0px;"><i class="fa fa-search"></i></button>
+            </form>
+        </nav>
+    </div>
+    <div class="loader"></div>
+</body>
+
+</html>
